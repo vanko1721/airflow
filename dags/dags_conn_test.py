@@ -2,6 +2,7 @@ from airflow import DAG
 import pendulum
 import datetime
 from airflow.operators.empty import EmptyOperator
+from airflow.models.baseoperator import chain
 
 with DAG(
     dag_id="dags_conn_test",
@@ -35,6 +36,9 @@ with DAG(
         task_id = 't8'
     )
 
-    t1 >> [t2,t3] >> t4
-    t5 >> t4
-    [t4,t7] >> t6 >> t8
+    chain(t1,[t2,t3],t4)
+    chain(t5,t4)
+    chain([t4,t7],t6,t8)
+    #t1 >> [t2,t3] >> t4
+    #t5 >> t4
+    #[t4,t7] >> t6 >> t8
