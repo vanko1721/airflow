@@ -13,7 +13,7 @@ with DAG(
     
     t1_orange = BashOperator(
         task_id = "t1_orange",
-        bash_command="/opt/airflow/plugins/shell/select_fruit.sh ORAGE",
+        bash_command="/opt/airflow/plugins/shell/select_fruit.sh ORANGE",
     )
 
     t1_avocado = BashOperator(
