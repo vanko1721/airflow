@@ -15,3 +15,5 @@ with DAG(
         task_id = 'task_get_sftp',
         python_callable=get_sftp
     )
+
+    task_get_sftp
