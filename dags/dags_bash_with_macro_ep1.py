@@ -10,7 +10,7 @@ with DAG(
 ) as dag:
     #START_DATE : 전월말일 END_DATE : 1일전
     bash_task_1 = BashOperator(
-        task_id = bash_task_1,
+        task_id = 'bash_task_1',
         env={'START_DATE':'{{ data_interval_start.in_timejone("Asia/Seoul") | ds }}',
              'END_DATE':'{{ (data_interval_end.in_timejone("Asia/Seoul") - macros.dateutil.relativedelta.relativedelta(days=1)) | ds}}'
         },
