@@ -11,7 +11,7 @@ with DAG(
 
     
     def insrt_postgres(ip, port, dbname, user, passwd, **kwargs):
-        import psycopg2
+        import psycopg2 # type: ignore
         from contextlib import closing
 
         with closing(psycopg2.connect(host=ip, dbname=dbname, user=user, password=passwd, port=int(port))) as conn:

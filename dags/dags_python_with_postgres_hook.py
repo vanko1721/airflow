@@ -9,7 +9,7 @@ with DAG(
         catchup=False
 ) as dag:
     def insrt_postgres(postgres_conn_id, **kwargs):
-        from airflow.providers.postgres.hooks.postgres import PostgresHook
+        from airflow.providers.postgres.hooks.postgres import PostgresHook # type: ignore
         from contextlib import closing
         
         postgres_hook = PostgresHook(postgres_conn_id)
