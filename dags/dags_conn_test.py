@@ -7,7 +7,7 @@ from airflow.models.baseoperator import chain
 with DAG(
     dag_id="dags_conn_test",
     schedule=None,
-    start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
+    start_date=pendulum.datetime(2024, 5, 1, tz="Asia/Seoul"),
     catchup=False
 ) as dag:
     
@@ -36,9 +36,9 @@ with DAG(
         task_id = 't8'
     )
 
-    chain(t1,[t2,t3],t4)
-    chain(t5,t4)
-    chain([t4,t7],t6,t8)
-    #t1 >> [t2,t3] >> t4
-    #t5 >> t4
-    #[t4,t7] >> t6 >> t8
+    #chain(t1,[t2,t3],t4)
+    #chain(t5,t4)
+    #chain([t4,t7],t6,t8)
+    t1 >> [t2,t3] >> t4
+    t5 >> t4
+    [t4,t7] >> t6 >> t8
