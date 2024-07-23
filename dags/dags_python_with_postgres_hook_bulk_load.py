@@ -6,7 +6,7 @@ from airflow.providers.postgres.hooks.postgres import PostgresHook
 with DAG(
         dag_id='dags_python_with_postgres_hook_bulk_load',
         start_date=pendulum.datetime(2024, 7, 23, tz='Asia/Seoul'),
-        schedule='0 7 * * *',
+        schedule=None,
         catchup=False
 ) as dag:
     def insrt_postgres(postgres_conn_id, tbl_nm, file_nm, **kwargs):
