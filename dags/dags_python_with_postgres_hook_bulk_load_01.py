@@ -18,5 +18,6 @@ with DAG(
         python_callable=insrt_postgres,
         op_kwargs={'postgres_conn_id': 'conn-db-postgres-custom',
                    'tbl_nm':'test01',
-                   'file_nm':'/home/vanko1721/files/TbCorona19CountStatus/test01'}
+                   #'file_nm':'/home/vanko1721/files/TbCorona19CountStatus/test01'}
+                   'file_nm':'/files/test01'}
     )
