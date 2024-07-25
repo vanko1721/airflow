@@ -18,5 +18,5 @@ with DAG(
         python_callable=insrt_postgres,
         op_kwargs={'postgres_conn_id': 'conn-db-postgres-custom',
                    'tbl_nm':'TbCorona19CountStatus_bulk1',
-                   'file_nm':'/home/vanko1721/files/TbCorona19CountStatus/TestCorona19Status.csv'}
+                   'file_nm':'/opt/airflow/files/TbCorona19CountStatus.csv'}
     )
