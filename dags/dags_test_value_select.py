@@ -24,7 +24,7 @@ with DAG(
                 #cursor.execute(sql,(dag_id,task_id,run_id,msg))
                 sql = 'select col2 from value_test where col1 = 1'
                 row = cursor.execute(sql)
-                #conn.commit()
+                conn.commit()
                 print(row)
 
     python_value_test = PythonOperator(
