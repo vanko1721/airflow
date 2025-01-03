@@ -25,7 +25,7 @@ with DAG(
                 sql = 'select col2 from value_test where col1 = 1'
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                conn.commit()
+                #conn.commit()
                 return result
 
     python_value_test = PythonOperator(
