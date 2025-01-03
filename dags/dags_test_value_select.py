@@ -26,7 +26,7 @@ with DAG(
                 cursor.execute(sql)
                 result = cursor.fetchall()
                 conn.commit()
-                print(result)
+                return result
 
     python_value_test = PythonOperator(
         task_id='python_value_test',
