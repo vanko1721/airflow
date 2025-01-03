@@ -22,7 +22,7 @@ with DAG(
                 #msg = 'insert 수행'
                 #sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);'
                 #cursor.execute(sql,(dag_id,task_id,run_id,msg))
-                sql = 'select col2 from value_test where col1 = ''1'''
+                sql = 'select col2 from value_test where col1 = 1'
                 row = cursor.execute(sql)
                 #conn.commit()
                 print(row)
