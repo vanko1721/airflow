@@ -27,6 +27,8 @@ with DAG(
                 sql = 'select %s from value_test where col1 = %s'
                 cursor.execute(sql,(val1,val2))
                 result = cursor.fetchall()
+                sql1 = 'select %s'
+                cursor.execute(sql1,(result))
                 #conn.commit()
                 return result
 
