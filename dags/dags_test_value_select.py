@@ -21,16 +21,33 @@ with DAG(
                 run_id = kwargs.get('ti').run_id
                 val1 = 'col2'
                 val2 = 1
-                result = ''
                 #msg = 'insert 수행'
                 #sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);'
                 #cursor.execute(sql,(dag_id,task_id,run_id,msg))
                 sql = 'select %s from value_test where col1 = %s'
                 cursor.execute(sql,(val1,val2))
                 result = cursor.fetchall()
+                #sql1 = 'select %s'
+                #cursor.execute(sql1,(result))
+                #result1 = cursor.fetchall()
+                #conn.commit()
+                return result
+
+        with closing(psycopg2.connect(host=ip, dbname=dbname, user=user, password=passwd, port=int(port))) as conn:
+            with closing(conn.cursor()) as cursor:
+                dag_id = kwargs.get('ti').dag_id
+                task_id = kwargs.get('ti').task_id
+                run_id = kwargs.get('ti').run_id
+                val1 = result
+                #msg = 'insert 수행'
+                #sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);'
+                #cursor.execute(sql,(dag_id,task_id,run_id,msg))
                 sql1 = 'select %s'
-                cursor.execute(sql1,(result))
+                cursor.execute(sql1,(val1))
                 result1 = cursor.fetchall()
+                #sql1 = 'select %s'
+                #cursor.execute(sql1,(result))
+                #result1 = cursor.fetchall()
                 #conn.commit()
                 return result1
 
