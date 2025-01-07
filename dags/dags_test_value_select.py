@@ -25,13 +25,13 @@ with DAG(
                 #sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);'
                 #cursor.execute(sql,(dag_id,task_id,run_id,msg))
                 sql = 'select %s from value_test where col1 = %s'
-                result = cursor.execute(sql,(val1,val2))
-                #result = cursor.fetchall()
-                sql1 = 'select %s'
-                cursor.execute(sql1,(result))
-                result1 = cursor.fetchall()
+                cursor.execute(sql,(val1,val2))
+                result = cursor.fetchmany(1)
+                #sql1 = 'select %s'
+                #cursor.execute(sql1,(result))
+                #result1 = cursor.fetchall()
                 #conn.commit()
-                return result1
+                return result
 
     python_value_test = PythonOperator(
         task_id='python_value_test',
