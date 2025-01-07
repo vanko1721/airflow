@@ -21,7 +21,7 @@ with DAG(
                 run_id = kwargs.get('ti').run_id
                 val1 = 'col2'
                 val2 = '1'
-                val3 = str(1)
+                val3 = '1'
                 #msg = 'insert 수행'
                 #sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);'
                 #cursor.execute(sql,(dag_id,task_id,run_id,msg))
@@ -31,12 +31,11 @@ with DAG(
                 #cursor.execute(sql,(val1,val2))
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                sql1 = 'select %s FROM value_test2 where col1 = ''' + val3 + ''
-                print(sql1)
-                #cursor.execute(sql1,(result))
-                #result1 = cursor.fetchall()
+                sql1 = 'select %s FROM value_test2 where col1 = ' + val2
+                cursor.execute(sql1,(result))
+                result1 = cursor.fetchall()
                 #conn.commit()
-                #return result1
+                return result1
 
     python_value_test = PythonOperator(
         task_id='python_value_test',
