@@ -26,8 +26,8 @@ with DAG(
                 cursor.execute(sql)
                 result = cursor.fetchall()
                 sql1 = 'select 1+2 as c FROM value_test2 where col1 = ' + "'" + val3 + "'"
-                cursor.execute(sql1,(result[0]))
-                result1 = cursor.fetchall()
+                result1 = cursor.execute(sql1,(result[0]))
+                #result1 = cursor.fetchall()
                 return result1
 
     python_value_test = PythonOperator(
