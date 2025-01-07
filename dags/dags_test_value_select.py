@@ -22,19 +22,12 @@ with DAG(
                 val1 = 'col2'
                 val2 = '1'
                 val3 = '1'
-                #msg = 'insert 수행'
-                #sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);'
-                #cursor.execute(sql,(dag_id,task_id,run_id,msg))
                 sql = 'select ' + val1 + ' from value_test where col1 = ' + val2
-                #print(sql)
-                #sql = 'select col2 from value_test where col1 = 1'
-                #cursor.execute(sql,(val1,val2))
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val2 + "'"
-                cursor.execute(sql1,(result))
+                sql1 = 'select %s FROM value_test2 where col1 = ' + val3
+                cursor.execute(sql1,(result[0]))
                 result1 = cursor.fetchall()
-                #conn.commit()
                 return result1
 
     python_value_test = PythonOperator(
