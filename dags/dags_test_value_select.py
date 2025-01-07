@@ -25,7 +25,7 @@ with DAG(
                 #sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);'
                 #cursor.execute(sql,(dag_id,task_id,run_id,msg))
                 sql = 'select %s from value_test where col1 = %s'
-                print(sql)
+                print(sql,(val1,val2))
                 #sql = 'select col2 from value_test where col1 = 1'
                 #cursor.execute(sql,(val1,val2))
                 #cursor.execute(sql)
