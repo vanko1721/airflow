@@ -31,7 +31,7 @@ with DAG(
                 #cursor.execute(sql,(val1,val2))
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                sql1 = 'select %s FROM value_test2 where col1 = ' + val3
+                sql1 = 'select %s FROM value_test2 where col1 = ''' + val3 + ''
                 cursor.execute(sql1,(result))
                 result1 = cursor.fetchall()
                 #conn.commit()
