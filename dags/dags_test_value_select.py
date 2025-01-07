@@ -32,10 +32,11 @@ with DAG(
                 cursor.execute(sql)
                 result = cursor.fetchall()
                 sql1 = 'select %s FROM value_test2 where col1 = ''' + val3 + ''
-                cursor.execute(sql1,(result))
-                result1 = cursor.fetchall()
+                print(sql1)
+                #cursor.execute(sql1,(result))
+                #result1 = cursor.fetchall()
                 #conn.commit()
-                return result1
+                #return result1
 
     python_value_test = PythonOperator(
         task_id='python_value_test',
