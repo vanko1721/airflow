@@ -21,6 +21,9 @@ with DAG(
                 run_id = kwargs.get('ti').run_id
                 val1 = 'col2'
                 val2 = '1'
+                A = 1
+                B = 1
+                C = 1
                 #msg = 'insert 수행'
                 #sql = 'insert into py_opr_drct_insrt values (%s,%s,%s,%s);'
                 #cursor.execute(sql,(dag_id,task_id,run_id,msg))
