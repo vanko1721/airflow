@@ -28,8 +28,8 @@ with DAG(
                 sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
                 cursor.execute(sql1,(result))
                 result1 = cursor.fetchall()
-                list = result1
-                print(list[0])
+                conn.commit()
+                print(result1[0])
                 #return result1
 
     python_value_test = PythonOperator(
