@@ -25,7 +25,7 @@ with DAG(
                 sql = 'select ' + val1 + ' from value_test where col1 = ' + val2
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                sql1 = 'select %s FROM value_test2 where col1 = ' + val3
+                sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
                 cursor.execute(sql1,(result[0]))
                 result1 = cursor.fetchall()
                 return result1
