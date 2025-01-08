@@ -26,7 +26,7 @@ with DAG(
                 sql = 'select col2, col1, col2 from value_test where col1 = ' + val2
                 cursor.execute(sql)
                 rows = cursor.fetchall()
-                result = rows[0] if rows else None
+                result = rows[2] if rows else None
                 print(result)
                 #sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
                 #cursor.execute(sql1,(result))
