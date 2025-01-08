@@ -21,19 +21,19 @@ with DAG(
                 run_id = kwargs.get('ti').run_id
                 val1 = 'col2'
                 val2 = '1'
-                val3 = '1'
+                val3 = 1
                 #sql = 'select ' + val1 + ' from value_test where col1 = ' + val2
                 sql = 'select col2, col1, col2 from value_test where col1 = ' + val2
                 cursor.execute(sql)
                 rows = cursor.fetchall()
                 result = rows[0][0] if rows else None
                 sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
-                #cursor.execute(sql1,(result))
-                #rows1 = cursor.fetchall()
-                #result1 = rows1[0][0] if rows1 else None
-                print(sql1,(result))
+                cursor.execute(sql1,(result))
+                rows1 = cursor.fetchall()
+                result1 = rows1[0][0] if rows1 else None
+                #print(sql1,(result))
                 conn.commit()
-                #return result1
+                return result1
 
     python_value_test = PythonOperator(
         task_id='python_value_test',
