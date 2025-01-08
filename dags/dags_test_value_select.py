@@ -28,7 +28,7 @@ with DAG(
                 rows = cursor.fetchall()
                 #result = rows[0][0] if rows else None
                 sql1 = 'select {} FROM value_test2'
-                cursor.execute(sql1,(rows[0][0]))
+                cursor.execute(sql1,format(rows[0][0]))
                 rows1 = cursor.fetchall()
                 print(rows1)
                 #result1 = rows1[0][0] if rows1 else None
