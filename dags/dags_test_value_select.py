@@ -21,7 +21,7 @@ with DAG(
                 run_id = kwargs.get('ti').run_id
                 val1 = 'col2'
                 val2 = '1'
-                val3 = 1
+                val3 = '1'
                 #sql = 'select ' + val1 + ' from value_test where col1 = ' + val2
                 sql = 'select col2, col1, col2 from value_test where col1 = ' + val2
                 cursor.execute(sql)
