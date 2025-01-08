@@ -26,12 +26,12 @@ with DAG(
                 sql = 'select col2, col1, col2 from value_test where col1 = ' + val2
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                #result = cursor.fetchmany(1)
-                #sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
-                #cursor.execute(sql1,(result))
-                #result1 = cursor.fetchall()
+                sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
+                cursor.execute(sql1,(result))
+                rows = cursor.fetchall()
+                result1 = rows[0]
                 conn.commit()
-                print(result)
+                print(result1)
                 #return result1
 
     python_value_test = PythonOperator(
