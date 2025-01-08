@@ -27,13 +27,12 @@ with DAG(
                 cursor.execute(sql)
                 rows = cursor.fetchall()
                 result = rows[0][0] if rows else None
-                print(result)
-                #sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
-                #cursor.execute(sql1,(result))
-                #rows = cursor.fetchall()
-                #result1 = rows[0]
+                sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
+                cursor.execute(sql1,(result))
+                rows1 = cursor.fetchall()
+                result1 = rows1[0][0] if rows1 else None
                 conn.commit()
-                #print(result1)
+                print(result1)
                 #return result1
 
     python_value_test = PythonOperator(
