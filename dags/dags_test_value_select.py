@@ -30,10 +30,11 @@ with DAG(
                 sql1 = 'select %s FROM value_test2'
                 cursor.execute(sql1,(result))
                 rows1 = cursor.fetchall()
-                result1 = rows1[0][0] if rows1 else None
+                print(rows1)
+                #result1 = rows1[0][0] if rows1 else None
                 #print(sql1,(result))
                 conn.commit()
-                return result1
+                #return result1
 
     python_value_test = PythonOperator(
         task_id='python_value_test',
