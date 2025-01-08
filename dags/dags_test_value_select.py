@@ -27,7 +27,7 @@ with DAG(
                 cursor.execute(sql)
                 rows = cursor.fetchall()
                 result = rows[0][0] if rows else None
-                sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
+                sql1 = 'select %s FROM value_test2'
                 cursor.execute(sql1,(result))
                 rows1 = cursor.fetchall()
                 result1 = rows1[0][0] if rows1 else None
