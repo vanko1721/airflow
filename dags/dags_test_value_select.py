@@ -22,14 +22,16 @@ with DAG(
                 val1 = 'col2'
                 val2 = '1'
                 val3 = '1'
-                sql = 'select ' + val1 + ' from value_test where col1 = ' + val2
+                #sql = 'select ' + val1 + ' from value_test where col1 = ' + val2
+                sql = 'select * from value_test where col1 = ' + val2
                 cursor.execute(sql)
-                result = cursor.fetchall()
-                sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
-                cursor.execute(sql1,(result))
-                result1 = cursor.fetchall()
+                #result = cursor.fetchall()
+                result = cursor.fetchmany(1)
+                #sql1 = 'select %s FROM value_test2 where col1 = ' + "'" + val3 + "'"
+                #cursor.execute(sql1,(result))
+                #result1 = cursor.fetchall()
                 conn.commit()
-                print(result1[0])
+                print(result)
                 #return result1
 
     python_value_test = PythonOperator(
