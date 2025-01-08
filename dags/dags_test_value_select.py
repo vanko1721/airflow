@@ -22,15 +22,16 @@ with DAG(
                 val1 = 'col2'
                 val2 = '1'
                 val3 = '1'
-                #sql = 'select ' + val1 + ' from value_test where col1 = ' + val2
-                sql = 'select col2, col1, col2 from value_test where col1 = ' + val2
+                sql = 'select ' + val1 + ' from value_test where col1 = ' + val2
+                #sql = 'select col2, col1, col2 from value_test where col1 = ' + val2
                 cursor.execute(sql)
                 rows = cursor.fetchall()
                 result = rows[0][0] if rows else None
                 sql1 = 'select ' + result + ' FROM value_test2'
                 cursor.execute(sql1)
                 rows1 = cursor.fetchall()
-                print(rows1)
+                result1 = rows1[0][0] if rows1 else None
+                print(result1)
                 #result1 = rows1[0][0] if rows1 else None
                 #print(sql1,(result))
                 conn.commit()
