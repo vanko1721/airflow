@@ -22,16 +22,20 @@ with DAG(
                 val1 = 'col2'
                 val2 = '1'
                 sql = f'select {val1} from value_test where col1 = {val2}'
+                sql3 = f'select * from value_test where col1 = {val2}'
                 cursor.execute(sql)
                 print(cursor.lastrowid)#목요일 오자마자 돌려보기
                 rows = cursor.fetchall()
                 print(rows)
-                result = rows[0][0] if rows else None
-                sql1 = f'select {result} FROM value_test2'
-                cursor.execute(sql1)
-                rows1 = cursor.fetchall()
-                result1 = rows1[0][0] if rows1 else None
-                print(result1)
+                cursor.execute(sql3)
+                rows11 = cursor.fetchall()
+                print(rows11)
+                #result = rows[0][0] if rows else None
+                #sql1 = f'select {result} FROM value_test2'
+                #cursor.execute(sql1)
+                #rows1 = cursor.fetchall()
+                #result1 = rows1[0][0] if rows1 else None
+                #print(result1)
                 conn.commit()
 
     python_value_test = PythonOperator(
