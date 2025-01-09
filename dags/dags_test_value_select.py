@@ -23,6 +23,7 @@ with DAG(
                 val2 = '1'
                 sql = f'select {val1} from value_test where col1 = {val2}'
                 cursor.execute(sql)
+                print(cursor.lastrowid)#목요일 오자마자 돌려보기
                 rows = cursor.fetchall()
                 result = rows[0][0] if rows else None
                 sql1 = f'select {result} FROM value_test2'
