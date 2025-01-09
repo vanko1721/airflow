@@ -25,6 +25,7 @@ with DAG(
                 cursor.execute(sql)
                 print(cursor.lastrowid)#목요일 오자마자 돌려보기
                 rows = cursor.fetchall()
+                print(rows)
                 result = rows[0][0] if rows else None
                 sql1 = f'select {result} FROM value_test2'
                 cursor.execute(sql1)
