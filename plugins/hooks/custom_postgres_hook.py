@@ -1,6 +1,6 @@
 from airflow.hooks.base import BaseHook
-import psycopg2 # type: ignore
-import pandas as pd # type: ignore
+import psycopg2
+import pandas as pd
 
 class CustomPostgresHook(BaseHook):
 
