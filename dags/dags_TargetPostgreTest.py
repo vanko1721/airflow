@@ -10,13 +10,13 @@ with DAG(
         catchup=False
 ) as dag:
     
-    AA='conn-db-postgres-custom'
-    BB='TbCorona19CountStatus_bulk2'
-    CC=','
+    AA = 'conn-db-postgres-custom'
+    BB = 'TbCorona19CountStatus_bulk2'
+    CC = ','
 
     def insrt_postgres(postgres_conn_id, tbl_nm, file_nm, **kwargs):
         custom_postgres_hook = TargetPostgre(postgres_conn_id=postgres_conn_id)
-        custom_postgres_hook.bulk_load(table_name=tbl_nm, file_name=file_nm, delimiter={CC}, is_header=True, is_replace=True)
+        #custom_postgres_hook.bulk_load(table_name=tbl_nm, file_name=file_nm, delimiter={CC}, is_header=True, is_replace=True)
 
     insrt_postgres = PythonOperator(
         task_id='insrt_postgres',
