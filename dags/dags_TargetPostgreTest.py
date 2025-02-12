@@ -10,19 +10,30 @@ with DAG(
         catchup=False
 ) as dag:
     
-    AA = 'conn-db-postgres-custom'
-    BB = 'TbCorona19CountStatus_bulk2'
-    CC = ','
+    ConName = 'conn-db-postgres-custom'
+    TarName = 'TbCorona19CountStatus_bulk2'
+    FileDir = '/home/vanko1721/files/TbCorona19CountStatus'
+    FileName = 'TestCorona19Status.csv'
+    FileDeli = ','
 
     def insrt_postgres(postgres_conn_id, tbl_nm, file_nm, **kwargs):
         custom_postgres_hook = TargetPostgre(postgres_conn_id=postgres_conn_id)
         print(postgres_conn_id,tbl_nm,file_nm)
-        #custom_postgres_hook.bulk_load(table_name=tbl_nm, file_name=file_nm, delimiter={CC}, is_header=True, is_replace=True)
+        custom_postgres_hook.bulk_load(table_name=tbl_nm, file_name=file_nm, delimiter={FileDeli}, is_header=True, is_replace=True)
+
+
+truncat_task
+()
+
 
     insrt_postgres = PythonOperator(
         task_id='insrt_postgres',
         python_callable=insrt_postgres,
-        op_kwargs={'postgres_conn_id': {AA},
-                   'tbl_nm':{BB},
-                   'file_nm':'/home/vanko1721/files/TbCorona19CountStatus/TestCorona19Status.csv'}
+        op_kwargs={'postgres_conn_id': {ConName},
+                   'tbl_nm':{TarName},
+                   'file_nm':{FileDir}/{FileName}}
     )
+
+
+
+trunc_task -> inaga
