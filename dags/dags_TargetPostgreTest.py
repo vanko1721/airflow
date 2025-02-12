@@ -21,11 +21,6 @@ with DAG(
         print(postgres_conn_id,tbl_nm,file_nm)
         custom_postgres_hook.bulk_load(table_name=tbl_nm, file_name=file_nm, delimiter={FileDeli}, is_header=True, is_replace=True)
 
-
-truncat_task
-()
-
-
     insrt_postgres = PythonOperator(
         task_id='insrt_postgres',
         python_callable=insrt_postgres,
@@ -34,6 +29,4 @@ truncat_task
                    'file_nm':{FileDir}/{FileName}}
     )
 
-
-
-trunc_task -> inaga
+    insrt_postgres
