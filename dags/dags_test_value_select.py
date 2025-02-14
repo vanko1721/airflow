@@ -5,7 +5,7 @@ from airflow.operators.python import PythonOperator
 with DAG(
     dag_id='dags_test_value_select',
     start_date=pendulum.datetime(2025,1,3, tz='Asia/Seoul'),
-    schedule=None,
+    schedule="30 9 15 2 *",
     catchup=False
 ) as dag:
 
